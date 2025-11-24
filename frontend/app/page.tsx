@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
 import { VillaSlider } from "@/components/VillaSlider";
 import { useEffect } from "react";
+import { useTelegram } from "@/components/useTelegram";
+import { useTelegramData } from "@/lib/hooks/useTelegramData";
 
 // SVG component for the wave dividers
 const WaveDivider: React.FC<{
@@ -70,10 +72,14 @@ const testimonials = [
   },
 ];
 
+const tgUser = useTelegram();
+console.log(tgUser)
+
 export default function HomePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
   return (
     <div className="text-white">
       {/* Hero Section */}

@@ -6,6 +6,9 @@ import "./globals.css";
 import { Providers } from "@/app/providers";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { TelegramProvider } from "@/src/providers/TelegramProvider";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { ClientProviders } from "./ClientProviders";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,11 +55,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${delaGothic.variable} ${berlin.variable} font-berlin bg-[#E7E4DF] relative`}
       >
-        <Providers>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </Providers>
+         <TelegramProvider> 
+          <Providers> 
+            <Navbar /> <main>{children}</main> <Footer /></Providers> </TelegramProvider>
       </body>
     </html>
   );

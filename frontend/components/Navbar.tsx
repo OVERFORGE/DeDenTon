@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Menu, X, User, LogOut } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
+import { useBackButton } from "@/lib/hooks/useBackButton";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,11 @@ export function Navbar() {
   const handleDashboard = () => {
     router.push("/dashboard");
   };
+
+
+  useBackButton(() => {
+    router.back();
+  });
 
   return (
     <nav className="bg-transparent text-white w-full z-50 sticky top-0 ">
